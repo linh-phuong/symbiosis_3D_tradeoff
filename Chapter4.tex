@@ -1,0 +1,336 @@
+\documentclass[11.5pt]{article}
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm]{geometry}
+%Creating diagram
+\usepackage{tikz}%create the model diagram
+\usetikzlibrary{tikzmark}%marking any point (used to highlight matrix elements or equation, etc)
+\usetikzlibrary{positioning}%(allow setting distance for node in diagram
+%Mathematic equations
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float} %Put the image at exact position
+\usepackage[labelfont=bf]{caption} %make the text Figure bold
+\usepackage{chngcntr} % renumber figure in appendix
+% import tex file
+\usepackage{import}
+\usepackage{example}
+%Add freference
+\usepackage[backend=biber,% using biber compilation to use biblatex package
+style = authoryear, %In case of JEB criteria set: apa,
+isbn=false,url=false,
+uniquename=false,
+uniquelist=false,
+maxcitenames=2,
+mincitenames=1,
+doi=false
+]{biblatex}
+\usepackage{csquotes}
+\addbibresource{./library.bib}
+
+\linespread{1.25}
+
+%=======BEGIN DOCUMENTS ======================================================================
+
+
+% ===== SET NEW COUNTER FOR FIGURE AND EQUATION =====
+
+%\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+%\setcounter{equation}{0}
+
+%\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+%\setcounter{figure}{0}
+
+%\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\begin{document}
+% ==== INTRODUCTION ===
+\section{Introduction}
+There is probably no dispute that obligate symbiosis has evolved from facultative symbiosis. However, that facultative and obligate symbiosis should be regarded as a continuum of different levels of dependency between partners is less well perceived and recognized (but see \cite{Fisher2017}). Consequently, binary classification of the partner dependency is often used based on whether or not an organism that engages in symbiosis can be found without its partner in nature. However, this system of classification is insufficient and imprecise. For instance, bobtail squids have never been observed to live independently of their symbiotic bacteria \textit{Vibrio fisheri}, and according to the traditional classification they should be categorised as obligate symbiosis. Nevertheless, when they are brought to the laboratory for further studies, they can thrive well without their partners, thus the interaction should be classified as facultative symbiosis. 
+
+\medskip
+
+Unfortunately, measuring the level of partner dependency is not so obvious, nor is it to decide which traits should be considered indicators of partner dependency. Moreover, the measurement of partner dependency is only possible experimentally; but the strictly controlled conditions in the laboratory have never been a perfect imitation of the true free-living environment in nature. Eventually, partners that are isolated from the associations may thrive well in one laboratory but not in another. As a result, it is difficult to come up with a standard laboratory condition for a measurement of partner dependency. With respect to this aspect, categorising facultative and obligate symbiosis is as difficult as categorising parasitism and mutualism. Yet there are many theoretical studies that explore the evolutionary transitions between parasitism and mutualism that provide useful insight into the conditions for which type of ecological interactions is favoured \parencite{VanBaalen2001, Yamamura1993, Neuhauser2004}. More and more efforts have been made to fill the gap between empirical and theoretical studies on the transitions of the nature of ecological interactions in symbiosis \parencite{Canestrari2014, Sachs2011, Sachs2014}.
+
+\medskip
+
+We would like to draw the attention of researchers to the aspect of facultative-obligate continuum by working out the condition under which symbiosis is facultative and obligate. In order to do so, we must at least come up with a trait that indicates the level of partner dependency. Independent reproduction, that is, the ability to reproduce in the external environment without the partner, is a good indicator. In fact, some organisms can survive without the partners in the external environment while unable to reproduce; however, this means that they will eventually die if they cannot find partners. Thus, being able to survive without being able to leave offspring should also be an indication of obligate symbiosis; and independent reproduction is a better indicator for partner dependency than the ability to survive in the free-living state.
+
+\medskip
+
+The question of how obligate symbiosis evolves from facultative symbiosis boils down to why organisms, that are capable of both independent reproduction and associated reproduction, sacrify all their independent reproduction. More importantly, this evolutionary transition is fundamentally independent of the underlying ecological interactions, that is, the same evolutionary mechanism must be active regardless of whether the partners are on the parasitic or mutualistic ends. Parasitism and mutualism are only two sides of a coin, and transitions from facultative to obligate symbiosis concern the loss of independent reproduction, which can occur in both parasitism and mutualism. Indeed, in nature, one does not always observe only facultative parasitism and obligate mutualism or vice versa. Parasitism and mutualism, however, may lead to different evolutionary pathways toward obligate symbiosis. Here, we will study the evolutionary transition from facultative to obligate symbiosis, taken into account the underlying ecological interactions.
+
+\medskip
+
+A key point to distinguish parasitism from mutualism is that parasites have a negative effect on the fitness of the host. This negative effect may be a reduction in host reproduction or an increase in host mortality, which in general is considered as parasite virulence in theoretical studies \parencite{Cressler2016}. Virulence that result in the reduction of host reproduction may not have a big effect on the fitness of the parasite, and thus may not affect the evolution toward obligate parasitism if living inside the host is more beneficial than being free-living organisms. However, virulence that results in the increase in host mortality should have a strong effect on the parasite fitness if dead hosts also mean dead parasites. Therefore, parasites that are highly virulent may not be able to evolve dependence on hosts. 
+
+\medskip
+
+However, being virulent may also bring benefits with respect to other traits of the parasites. For instance, studies showed that increasing virulence often leads to higher reproduction inside the host \parencite{DeRoode2008, Longdon2015, Messenger1999, Lipsitch1997, Mackinnon2006}. These studies only consider obligate parasitism, hence higher virulence is often associated with higher transmission rate or with higher within-host reproduction. One could infer that, in facultative parasitism, increasing virulence might be associated with increasing the chance to find a host in the external environment; it could also correlate with facilitating the establishment inside the host, or increasing the reproduction of free-living offspring. 
+
+\medskip
+
+Things are more complicated if we consider host reaction. Being harmful toward the hosts probably triggers host defense. If defensive actions of the host reduce host reproduction, then from the perspective of the host, it would prefer to get rid of the parasite, thereby making it more difficult for the parasite to evolve dependency. On the other hand, if host defense affects only host survival or if it increases host persistence, then the host may endure the parasite and it is possible for the evolution of obligate parasitism. In this study, we will not take into account the co-evolution of hosts and symbionts, and only focus on the evolution of the symbiont taken into account its effect on the host.
+
+\medskip
+
+Mutualism is characterised as cooperation between partners. There are many ways in which a partner could cooperate and increase the fitness of the other partner. Partners can provide and exchange nutrition that is scarce in the environment thereby increasing the reproduction of all partners in the association; we call this the benefits from reproduction. In many cases, one partner can protect the other partner from predators or simply enhance the partner's survival; we call this the benefits from survival. Alternatively, partners can provide indirect benefits via increasing dispersal rate, thereby increasing the chance to occupy new environment and new resources. Cooperative action may therefore add more benefits to the associated lifestyle and may be able to facilitate the evolutionary transition toward obligate symbiosis. Obligate mutualism therefore seems to have more room to evolve from facultative mutualism than obligate parasitism from facultative parasitism. 
+
+\medskip
+
+However, these benefits from cooperation may also come at a cost. For example, fixing nitrogen can be associated with a reduction in reproduction in bacteria \parencite{Inomura2017}, but this ability provide the host plant nutrition that is limited in the soil. With regards to the host plants, it has been shown that nearly 20\% of the carbonhydrate produced by the plant is transferred to the root, becoming food for the symbiotic bacteria, hence it is no longer available to use in plant growth and reproduction \parencite{Hinsinger2005}. If the cost is imposed on the free-living organisms, then mutualism will favour the transition toward obligate symbiosis. However, if the cost is imposed on other traits in the associated lifestyle, then evolutionary transitions toward obligate symbiosis may not be so easy.
+
+\medskip
+
+At first sight, evolving toward obligate symbiosis may seem more difficult for antagonistic relationships than for cooperative relationships. However, there are conditions under which antagonistic relationships can facilitate the evolutionary transition toward obligate symbiosis, and cooperative relationships may not always lead to obligate symbiosis. This may be why obligate parasitism is not rare and obligate mutualism is not the rule. We construct a model that focus on the evolution of the independent reproduction of a symbiont taken into account the host's ecological dynamics. We explore a trade-off among independent reproduction, bound reproduction (via horizontal transmission), and now also the mortality rate of the association. In this model, we focus on the ecological interactions under the form of the host's mortality rate that is influenced by the 'infection' of the symbiont. We found that obligate parasitism and mutualism can both evolve, but different ecological interactions may lead to completely different evolutionary routes. Moreover, some evolutionary outcomes are more likely under certain types of ecological interactions.
+
+%======MODEL==========
+
+\section{Model}
+
+\import{}{schematic.tex}
+
+We use the same ecological dynamics as in the previous chapter where we takes into account the dynamics of both the hosts and the symbionts. Briefly, a symbiont can be in the free-living state $\mathcal{F}$ or in association with a host $\mathcal{A}$. $\rho$, $\mu$ are the reproduction and mortality rates of a free-living symbiont; $\beta$ is the host encounter rate. $\nu$ is the mortality rate of a host associated with a symbiont; it is also the bound mortality rate of the symbiont. $\tau$ is the rate that a bound symbiont produces free-living offspring. $p$ is the probability that the symbiont is transmitted with the host. Both free hosts and occupied hosts reproduce at a rate $r$ and die at a rate $d$. The population of free-living symbionts is limited by the competition for resource $K(\mathcal{F})= \kappa/((\phi + 1) \mathcal{F})$, and the population of bound symbionts and free host is limited by the crowding effect $N(\mathcal{A}, \mathcal{H}) = 1 + \gamma(\mathcal{A} + \mathcal{H})$ and $D(\mathcal{A}, \mathcal{H}) = 1 + \zeta (\mathcal{A} + \mathcal{H})$ respectively. 
+
+\section{Trade-off among the independent reproduction, bound reproduction and host mortality rate}
+
+We assume a trade-off among the reproduction rates and the bound mortality. The expression of the trade-off is
+
+\begin{align} \label{troff}
+    \tau +  \upsilon \rho^{h} = \theta  + \eta (\nu - \nu_0)^{g}
+\end{align}
+
+\noindent where the right-hand side represents the total amount of resources that can be spent on either independent reproduction $\rho$ or bound reproduction $\tau$. The expression $h$ represents the effect that the relative investment in the two reproductive rates may not be linear. $\upsilon$ is the coefficient of the nonlinear investment between the two reproductive rates, and is always positive. 
+
+\medskip
+
+Another interpretation one can made from this trade-off is that, gaining adaptation to the symbiotic lifestyle imposes a loss of independent reproduction. Therefore, $h$ indicates the cost of adapting to the association, such that $h > 1$ indicates a low-cost adaptation because a small reduction in the independent reproduction results in a large increase in the bound reproduction. In contrast, $h < 1$ indicates a high-cost adaptation because a small reduction in the independent reproduction results in a small increase in the bound reproduction. 
+
+\medskip
+
+The resource contains a fixed income $\theta$ that can be augmented by exploiting the host, which results in higher host mortality rate, or a parasitic relationship. The symbiont could also try to reduce the host mortality rate but that would subtract from the available resource $\theta$; the interaction is thus mutualistic. Again, the parameter $g$ accounts for the potential nonlinearity of this relationship. If the interaction is parasitism, $g > 1$ indicates that a small increase in host mortality would result in a large amount of additional resource, which indicates an efficient parasite. In mutualism, it means that a small decrease in host mortality results in a large reduction of the total resource, which implies an inefficient mutualist. In contrast, $g < 1$ indicates that a large increase in host mortality result in only a small amount of additional resource; this indicates an inefficient parasite. Accordingly, in mutualism, it means that even a large decrease in host mortality results in a small reduction of the total resource, which means an efficient mutualist. 
+
+\medskip
+
+In this model, we do not account for the effect of the symbiont on the host reproduction. Therefore, parasites do not reduce the host reproduction and mutualists do not increase the host reproduction. Ecological interactions therefore are simply results of the positive or negative effect of the symbiont on the host mortality. $\nu_0$ is the baseline mortality rate of an association. In case the symbiont provides host protection, $\nu_0$ is the minimum mortality rate of the association resulted from the protection by the symbiont. One can also rewrite expression (\ref{troff}) such that the left-hand side contains only the bound reproduction $\tau$ while the right-hand side is a function  $\mathcal{O}(\rho, \nu)$ of two variables, independent reproduction $\rho$ and bound mortality $\nu$:
+
+
+\begin{align*}
+\tau = \theta - \upsilon \rho^h + \eta (\nu - \nu_0)^g = \mathcal{O}(\nu, \rho)
+\end{align*}
+
+$\mathcal{O}(\rho, \nu)$ now forms a trade-off surface on the $\tau \times \rho \times \nu$ space. Our way of constructing the trade-off results in an emerging relationship between the independent reproduction $\rho$ and the host mortality rate $\nu$ for a given $\tau$. This relationship is unimportant when the bound reproduction $\tau$ is zero because even if the symbiont meet with the host, it cannot reproduce free-living offspring. However, if the bound reproduction is not zero then the emerging relationship between the independent reproduction and the host mortality matters, such that, if the relationship is parasitism, increasing independent reproduction $\rho$ also increases the host mortality rate $\nu$, which may not be an unreasonable assumption. On the other hand, if the relationship is mutualism then increasing independent reproduction $\rho$ will decreases the host mortality rate $\nu$. There is no evidence for such a relationship, but it does not mean that it is impossible, hence, in our analysis we will not rule out this possibility. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chap4Fig12.png}
+    \caption[Contours of the trade-off surface]{Contours of the trade-off surface on the $\rho \times \nu$ plane. High value of $\tau$ at high value of $\nu$ and zero $\rho$ in the case of parasitism (left panel). High value of $\tau$ at low value of $\nu$ and zero $\rho$ in the case of mutualism.}
+    \label{Chap5fig12}
+\end{figure}
+
+\section{Invasion fitness and singular strategy}
+
+The invasion success of a rare mutant can be inferred from the sign of the determinant of the matrix $M$ that describes the dynamics of the mutant at the equilibrium of a resident $\mathcal{\hat{F}}$, $\mathcal{\hat{A}}$, $\mathcal{\hat{H}}$, where
+
+\begin{equation}
+M = 
+\begin{pmatrix}
+\rho_m K(\mathcal{\hat{F}}) - \beta \mathcal{\hat{H}} - \mu & 
+\tau_m
+ \\
+\beta \mathcal{\hat{H}} & 
+r \ p - \nu_m \ N(\mathcal{\hat{A}}, \mathcal{\hat{H}})
+\end{pmatrix}
+\end{equation}
+
+A mutant can invade if $|M| < 0$, which can be rearranged to give an inequality between the bound reproduction versus the independent reproduction and the bound mortality rate
+\begin{align}
+    \tau_{m} > \mathcal{I}(\rho_m, \nu_m, \rho, \nu)\end{align}
+
+\noindent where
+
+\begin{align*}
+\mathcal{I}(\rho_m, \nu_m, \rho, \nu) = \frac{N(\mathcal{\hat{A}}, \mathcal{\hat{H}}) \nu_m - p r}{\beta \mathcal{\hat{H}}}
+    \left(
+    \beta \mathcal{\hat{H}} + \mu - K(\mathcal{\hat{F}})\rho_m
+   \right)
+\end{align*}
+
+\noindent  can be interpreted as an invasion surface determined by a resident; it is a function of the strategy $\rho_m$ and $\nu_m$ that is adopted by the mutant, and the strategy $\rho$ and $\nu$ that is adopted by the resident. The effect of the resident on the invasion fitness of a mutant is embedded in the resident population $\mathcal{\hat{F}}, \ \mathcal{\hat{A}}, \ \mathcal{\hat{H}}$ at equilibrium. Any mutant with the bound reproduction value that lies on the trade-off surface $\mathcal{O}(\nu_m, \rho_m)$ and in the area above the invasion boundary will be able to invade, replace the resident population $\mathcal{\hat{F}}$, $\mathcal{\hat{A}}$, $\mathcal{\hat{H}}$, and then define a new invasion surface (Figure \ref{Chap5fig8}). The intersection between the invasion surface and the trade-off surface is the invasion boundary on the $\rho \times \nu$ plane, which divides the area that mutants can invade (positive area) and the one that mutants cannot (negative area) (Figure \ref{Chap5fig8}B). 
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chap4Fig8}
+    \caption[An illustration of the invasion surface, trade-off surface for a resident]{The invasion surface (meshed manifold) of a resident (gray dot) divides the space into invadable area (above part of the manifold) and uninvadable area (below part of the manifold). The invasion surface intersect with the trade-off surface (coloured manifold) at the invasion boundary (red lines). A) when the trade-off surface is rather flat, and B) when the trade-off surface is rather curved. B, D) The invasion boundary projected on the $\rho \times \nu$ plane divides the local area around the resident into the invadable area (positive sign) and the uninvadable area (negative sign).}
+    \label{Chap5fig8}
+\end{figure}
+\medskip
+
+\subsection{Intermediate ESS}
+
+A singular strategy, if it exists, will be the tangent point between the trade-off surface $\mathcal{O}(\rho, \nu)$ and the invasion surface $\mathcal{I}(\rho, \nu, \rho_m, \nu_m)$ (Figure \ref{Chap5fig9}), which satisfies
+
+$$\left \{
+\begin{aligned}
+& 
+\mathcal{O}(\nu, \rho) = 
+\mathcal{I}(\nu, \rho, \nu_m, \rho_m) |_{\substack{\rho = \rho_m = \rho^* \\
+             \nu = \nu_m = \nu^*}} 
+             \\
+& 
+\frac{\partial \mathcal{O}(\nu, \rho)}{\partial \rho} = 
+\frac{\partial  \mathcal{I}(\nu, \rho, \nu_m, \rho_m) }{\partial \rho_m}
+\Big|_{\substack{\rho = \rho_m = \rho^* \\
+                 \nu = \nu_m = \nu^*}} 
+                 \\
+& 
+\frac{\partial \mathcal{O}(\nu, \rho) }{\partial \nu} = 
+\frac{\partial  \mathcal{I}(\nu, \rho, \nu_m, \rho_m) }{\partial \nu_m} 
+\Big|_{\substack{\rho = \rho_m = \rho^* \\
+                 \nu = \nu_m = \nu^*}}
+\end{aligned}
+\right.$$
+
+For the projection on the $\rho \times \nu$ plane, this implies that the invasion boundary vanishes at the singular strategy (Figure \ref{Chap5fig9}).
+
+\medskip
+
+The singular strategy is a maximum point on the fitness landscape (a local ESS) if, locally around the tangent point, the trade-off surface lies below the invasion surface (Figure \ref{Chap5fig9}A, B), whereas it is a minimum point, if the trade-off surface lies above the invasion surface (Figure \ref{Chap5fig9}C, D). On the projection on the $\rho \times \nu$ plane, an ESS is a point within a local negative area (Figure\ref{Chap5fig9}B, D). In contrast, the singular strategy is at a minimum point if the tangent point lies within a local positive area (Figure \ref{Chap5fig9} C, D). The sign of the local area around the singular point ($\rho^*, \nu^*$) is calculated as 
+$\mathcal{O}(\nu^*, \rho^*) - \mathcal{I}(\nu^*, \rho^*, \nu_m, \rho_m)$ for mutants that adopt a range of independent reproduction strategies from $\rho_i$ to $\rho_j$, with $\rho_i < \rho^* < \rho_j$, and a range of bound mortality strategies, from $\nu_i$ to $\nu_j$, where $\nu_i < \nu^* < \nu_j$ (Figure \ref{Chap5fig9}B, D). 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chap4Fig9.png}
+    \caption[Intermediate singular strategy]{A, C). The singular strategy ($\rho^*, \nu^*$) is the tangent point between the invasion surface (meshed manifold) and the trade-off surface (coloured manifold). B, D) At the singular point, the steepest ascents of the two surfaces are coincident (gray arrow). A) At the ESS, the invasion surface is above the trade-off surface; and B) the two coincident steepest ascents lie in the surrounding negative area determined C) At the minimum point, the invasion surface is below the trade-off surface; and D) the two coincident steepest ascents lie in the surrounding positive area. The sign of the local area is explained in the text.}
+    \label{Chap5fig9}
+\end{figure}
+
+\subsection{Boundary ESS}
+
+The ESS needs not be a tangent point between the trade-off and the invasion surface in the interior of the $\rho \times \tau \times \nu$ space; it can be the intersection of the two surfaces at the boundary and we will refer to such a point as a boundary ESS. A boundary ESS is a strategy where two evolutionary traits take the extreme values; for instance zero independent reproduction and baseline host mortality. Furthermore, at the boundary strategy, the invasion surface lies above the trade-off surface (Figure \ref{Chap5fig10}). On the $\rho \times \nu $ plane, at the boundary ESS, the interior area of the $\rho \times \nu$ space is negative (Figure \ref{Chap5fig10}B). In contrast, a minimum boundary exists if at this point, the invasion surface lies below the trade-off surface; therefore, on the $\rho \times \nu $ plane, at the minimum boundary point, the interior area of the $\rho \times \nu$ space is positive. Again, the sign of the interior area is determined by  $\mathcal{O}(\nu^*, \rho^*) - \mathcal{I}(\nu^*, \rho^*, \nu_m, \rho_m)$, where $\rho_m$ takes the values from $\rho_i$ to $\rho_j$, with $\rho_i \leq \rho^*$ or $\rho^* \leq \rho_j$, and $\nu_m$ takes the values from $\nu_i$ to $\nu_j$, with $\nu_i \leq \nu^*$ or $\nu^* \leq \nu_j$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chap4Fig10.png}
+    \caption[Boundary singular strategy]{A) Boundary ESS at which the invasion surface (meshed manifold) lies above the trade-off surface (coloured manifold). B) On the projection on the $\rho \times \nu$ plane, at the boundary ESS, the steepest ascent of the invasion surface (red arrow) lies in the negative area. C) Minimum point at which the invasion surface lies below the trade-off surface. D) At the minimum point on the $\rho \times \nu$ plane, the steepest ascent of the invasion surface lies on the positive area. The sign of the area is explained in the text.}
+    \label{Chap5fig10}
+\end{figure}
+
+\subsection{Set of neutrally stable points}
+
+In our trade-off setting, a set of neutrally stable points can also exist. It is when the intersection between the invasion surface and the trade-off surface is parallel to a boundary (Figure \ref{Chap5fig11}C); the projection of the intersect on the $\rho \times \nu$ plane is simply a straight line at the boundary such that mutants in the interior area of the trade-off surface cannot invade, hence the interior area along the invasion boundary is negative  (Figure \ref{Chap5fig11}D). In this case, resident populations with different life history strategies can have similar fitness; however one of their life history strategy is at its extreme value. For instance, they can all have a zero independent reproduction rate but different bound reproduction rates and mortality rates, or, they can all have a baseline bound mortality rate but different independent rates and bound reproduction rates.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chap4Fig11.png}
+    \caption[Set of neutrally stable points]{A) 3D representation when the invasion surface intersect with the trade-off surface at a boundary. B) Illustration of the projection on the $\rho \times \nu$ plane.}
+    \label{Chap5fig11}
+\end{figure}
+
+\section{Results}
+\subsection{Low-cost adaptation to the symbiotic lifestyle may result in monomorphic population of obligate symbiosis}
+If gaining adaptation in the symbiotic lifestyle imposes a small cost on the independent reproduction, then gradual loss of independent reproduction via small mutation steps is possible. However, parasitism and mutualism may have different evolutionary trajectories, and may lead to different evolutionary results. 
+
+\medskip
+
+In parasitism, if we start with populations with zero bound reproduction, evolution never selects for increasing the bound reproduction. In Figure \ref{Chap5fig4}A, B, these populations correlates with points in the darkest areas and above the dashed lines; at these point, moving to the bright area is always negative , suggesting that increasing bound reproduction always reduce the population fitness. In other words, parasitism with a small adaptation to the symbiotic lifestyle will never evolve dependency on the host. 
+
+\medskip
+
+When the parasite has some adaptations; this correlated to the points at a brighter area in Figure \ref{Chap5fig4}; evolution may also reduce the bound reproduction because being able to reproduce inside the host increases the host mortality, and if the parasites are inefficient in exploiting the host, evolving dependency toward the host will never occur (Figure \ref{Chap5fig4}A). On the other hand, by reducing the bound reproduction, the parasite reduces host mortality rate; and if the parasites can sacrify some of its resources to provide host protection, then evolution can first select for a transition toward mutualism (this is when the populations lie below the dashed lines). Then subsequent selection for increasing bound reproduction can occur, and the evolutionary end is a population of obligate mutualistic symbionts (Figure \ref{Chap5fig4}A). 
+
+\medskip
+
+Interestingly, if the parasite is efficient in exploiting the host, then via a big mutation step, evolution may be able to select for either obligate parasites that induce a high host mortality rate, or obligate parasites that induce lower host mortality rate. Again, if the parasite can sacrify its resource to provide host protection, it will evolve toward obligate mutualism (Figure \ref{Chap5fig4}B). Cases when the parasites cannot sacrify its resource to protect the host are simply cases in which the baseline mortality rate of infected hosts is always higher than the mortality rate of the free hosts.
+
+\medskip
+
+In mutualism, the evolutionary end point is always a population of obligate mutualists regardless of what strategy a starting population adopts. This is because increasing bound reproduction reduce host mortality rate, or the symbiont confers protection to the host; therefore, adapting to the symbiotic lifestyle always increases the fitness of the population. In Figure \ref{Chap5fig4}C, for a given resident population that is a facultative symbionts (i.e. non-zero bound reproduction and independent reproduction), a mutant can invade if it has the same independent reproduction as the resident but provides more protection to the host (i.e. vertical movement on the $\rho \times \nu$ plane). It can also invade if reducing host mortality also lead to a reduction in the independent reproduction (i.e. diagonal movement on the $\rho \times \nu$ plane). This is the case when reducing independent reproduction also means decreasing host mortality. However, we are not aware of any empirical studies suggesting this relationship. If this is not possible, then a common evolutionary pathway in mutualism would be first reducing the mortality rate to the base line mortality rate (vertical movement), then evolution of increasing adaptation thereby reducing the independent reproduction (horizontal movement).
+
+\begin{figure} [H]
+    \centering
+    \includegraphics[width=\textwidth]{Chap4Fig4}
+    \caption[Evolutionary trajectory at low-cost adaptation]{Mutant invasion possibilities for resident populations that adopt different strategies on the contours of the trade-off surface projected on the $\rho \times \nu$ plane. A) Parasites that are inefficient in host exploitation ($\eta=1, g=0.612$), B) parasites that are efficient in host exploitation $\eta=1, g=2.612$, and C) Mutualism($\eta = -1, g=1.8$). Each resident (gray dots) has its own invasion boundary (red curves) that divides the local area into the invadable area (positive sign) and uninvadable area (negative sign) for mutants. Crosses indicate that population at that point cannot exist. Dashed line indicate the free host mortality rate. If the occupied host mortality rate is above the line then the relationship is parasitism, else it is mutualism via host protection. Other parameters' values $\mu=1.4, \kappa=3, \phi=2.1, \gamma=1.23, p=0.1, \beta=2.1, r=2.3, d=1.3, \zeta=1.23, \upsilon=1, \theta=8, h=1.1,  \nu_0=0.5$}
+    \label{Chap5fig4}
+\end{figure}
+
+\subsection{High-cost adaptations to the symbiotic lifestyle result in diverse evolutionary outcomes}
+
+\subsubsection*{Parasitism}
+When adapting to the association is costly, losing independent reproduction to lead to obligate parasitism cannot evolve via small mutations either. Again, parasites that have small adaptation will become free-living organisms regardless of whether the parasite is efficient or inefficient in exploiting the host. However, big mutations can lead to a big loss of independent reproduction, resulting in the evolution of obligate parasitism under certain circumstances. 
+
+\medskip
+
+Via a big mutation, evolution of populations of obligate parasite that induce small host mortality rate may be possible (the yellow area above the dashed line in figure \ref{Chap5fig5}A). In this area, the invasion boundaries of the resident are parallel to the dashed line, indicating that different populations of nearly obligate parasites may coexist because they have similar fitness. However, these populations of obligate parasitism are unstable because if regaining independent reproduction crosses a threshold, where the invasion boundaries are no longer parallel to the dashed line, then populations that maximise their independent reproduction are always selected. Similar to the case of low-cost adaptation, only when parasitism evolves toward mutualisms can obligate symbiosis evolve. 
+
+\medskip
+
+On the other hand, if the parasites can be efficient in exploiting the host, then again evolution of either obligate parasitism that induces high host mortality rate or obligate parasitism that induces low host mortality rate is both possible (Figure \ref{Chap5fig5}B). Similar to the case of low-cost adaptation, if the parasite can sacrify its resource to protect the host and become a mutualist, then obligate mutualism can be an evolutionary outcome.
+
+\begin{figure} [H]
+    \centering
+    \includegraphics[width=\textwidth]{Chap4Fig5}
+    \caption[Evolutionary trajectories in case of high-cost adaptation in parasitism]{Mutant invasion possibilities for resident populations that adopt different strategies on the contours of the trade-off surface projected on the $\rho \times \nu$ plane. The annotation is the same as the above figures. A) Inefficient parasites ($\eta=1, g=0.312$), B) Efficient parasite ($\eta=1, g=1.621$)s. Other parameters'value $h=0.5, \mu=1.4, \kappa=3, \phi=2.1, \gamma=\zeta=1.23, p=0.1, \beta=2.1, r=2.3, d=1.1, \upsilon=1, \theta=5, \nu_0=0.5$}
+    \label{Chap5fig5}
+\end{figure}
+
+\subsubsection*{Mutualism}
+When adapting to the association is costly in a mutualistic relationship, evolution of obligate mutualism is still possible via small mutations because initially there are always benefits from protecting the host via increasing bound reproduction. If the mutalists are efficient in protecting the hosts, it is very likely that there is coexistence of several populations of facultative mutualism with different independent reproduction of high values. Indeed, in figure \ref{Chap5fig6}C, the invasion boundaries are nearly parallel with the independent reproduction axis at the baseline value of host mortality and in the area where independent reproduction value is still high (the dark area). This suggests that these populations of symbionts with different levels of bound reproduction and independent reproduction have similar fitness, therefore one population cannot replace the other, and coexistence is very likely. However, if more adaptations to the symbiotic lifestyle can be achieved and the value crosses a threshold, then obligate mutualism will evolve \ref{Chap5fig6}B. 
+
+\medskip
+
+On the other hand, coexistence of populations of facultative mutualistic symbionts is less likely if the mutualist is inefficient in protecting the host. This means that only when the symbiont is highly adapted to the symbiotic lifestyle can it provide sufficient protection to the host. In this scenario, the invasion boundary is no longer parallel with the axis of independent reproduction at high values of independent reproduction (Figure \ref{Chap5fig7}). Evolution of one stable monomorphic obligate mutualist is the only outcome.
+
+\begin{figure} [H]
+    \centering
+    \includegraphics[width=\textwidth]{Chap4Fig6}
+    \caption[Evolutionary trajectories in case of high-cost adaptation and efficient host protection]{Mutant invasion possibilities for resident populations that adopt different strategies on the contours of the trade-off surface projected on the $\rho \times \nu$ plane. The annotation is the same as the above figures. A) An overview of the evolutionary trait space when mutualists are efficient in protecting the host. B) Zoom in at the extreme of no independent reproduction (black square in A). C) Zoom in at the large value of independent reproduction (gray square in A). Parameters'value $mu=1.4, \kappa=3, \phi=2.1, \gamma=\zeta=1.23, p=0.1, \beta=2.1, r=2.3, d=1.3,\upsilon=1, \theta=7, h=0.87, \eta=-1, g=0.2, \nu_0=0.5$.}
+    \label{Chap5fig6}
+\end{figure}
+
+\begin{figure} [H]
+    \centering
+    \includegraphics[scale=0.5]{Chap4Fig7}
+    \caption[Evolutionary trajectories in case of high-cost adaptation and inefficient host protection]{Mutant invasion possibilities for resident populations that adopt different strategies on the contours of the trade-off surface projected on the $\rho \times \nu$ plane. The annotation is the same as the above figures. Other parameters' value are the same as in figure \ref{Chap5fig6} except that $g = 2.2$.}
+    \label{Chap5fig7}
+\end{figure}
+
+\section{Discussion}
+
+Obligate symbiosis has been shown to be strongly associated with loss of function, such that obligate symbionts are no longer capable of reproduce and/or survive in the environment on their own. However, a symbiotic lifestyle requires adaptation, and a mere loss of function can hardly evolve since it comes with a big disadvantage for the free-living ancestors. Hence, the loss of function has to confer benefits to the symbiotic lifestyle. In other words, adaptation to the symbiotic lifestyle may induce a cost in the free-living lifestyle. Antagonistic relationships may create difficulties in the evolution of host dependency while cooperative relationships may facilitate such an evolutionary transition. However, symbionts that are virulent may increase the benefits by increasing additional reproduction, whereas symbionts that are mutualist may have a reduction in benefits because they sacrify some resource to protect the hosts. 
+
+\medskip
+
+In this study, we analysed a mathematical model that assumes a three-way relationships between independent reproduction, host mortality rate affected by the symbionts, and bound reproduction (i.e. reproduction of free-living symbionts via the association). This trade-off is such that reducing independent reproduction increases bound reproduction. In addition, an increase in bound reproduction may increase or decrease host mortality; the former is parasitism whereas the latter is mutualism. Mutualism is not limited to providing protection to the host, it also involves increasing the host fecundity; however in the scope of our model, mutualism only involves host protection. It should be also noted that the evolving bound reproduction in this model also includes the ability to the successful establishment inside the host. Indeed, in order to complete a life cycle via association, symbionts, regardless of being parasitic or mutualistic, have to accomplish two tasks: avoid being eliminated by the host immune system and extract sufficient host nutrition for reproduction. In this model, we do not model explicitly the ability to establish inside the host, but embed it in the bound reproduction.
+
+\medskip
+
+Before discussing the details of our model, we should explain why we do not observe facultative symbiosis, except in one case of mutualism. This is probably due to the way that we constructed the trade-off function. Currently, there is no limitation to the increase of the bound reproduction, hence no limitation to the decrease of the independent reproduction; and the minimum value that the independent reproduction can reach is zero. Would our trade-off function be such that the benefits to the bound reproduction saturates then intermediate independent reproduction may be possible, and various cases of facultative symbiosis may be observed. 
+
+\medskip
+
+Our model shows that if benefits to the symbiotic life style come at a cost in the free-living life style then evolution toward losing all independent reproduction is possible in many scenarios regardless of the magnitude of the cost. However, mutualism and parasitism may have very different evolutionary scenarios. In mutualism, evolution from free-living organisms to obligate mutualists is almost always possible via small mutations. Only when mutualists are inefficient in providing protection to the hosts would big mutations be required for the evolution of obligate mutualists. In parasitism, evolution toward losing all independent reproduction is only possible with big mutations. If the parasites are inefficient in exploiting the host, they are less likely to lose independent reproduction and will become free-living organisms. In fact, incorporating ecological interactions simply adds another dimension of benefits into the symbiotic lifestyle: increasing benefits either by prolonging the time inside the host thanks to protection, or adding more to the bound reproduction via exploiting the host. 
+
+\medskip
+
+We also shows that, parasitism may result in more diverse populations than mutualism in terms of the effect of the symbiont on the host mortality. For instance, in parasitism, populations of free-living organisms, parasites that can induce high virulence, parasites that induce low virulence are all possible. In mutualism, monomorphic population of obligate mutualists is a common evolutionary end, and one does not observe mutualists with different levels of host protection. This is probably because our current trade-off is such that protecting the hosts is always beneficial whereas being virulent reduce host mortality; therefore, maximising host protection should always be expected, whereas being highly virulent or not depends on how much benefits a symbiont gains from being virulent to the host. On the other hand, in terms of diversity in host dependency, our model shows that mutualism can lead to both facultative and obligate mutualists, even though populations of facultative mutualists are only possible if adaptations to the symbiotic lifestyle is costly and the mutualists are efficient in host protection. However, parasitism only lead to obligate parasites or free-living organisms. It should be noted that, our invasion analysis was conducted locally, and we do not observe branching process. The possibility of populations with different strategies do not necessarily imply polymorphism; it only suggests that polymorphism is possible.
+
+\medskip
+
+Finally, our model shows that transitions from parasitism to mutualism are possible if the parasites can sacrify some of their resources to provide host protection. Such a scenario may seem unlikely, but may not be impossible. For instance, many free-living bacteria produce toxins to increase survival and competition in the external environment; the toxin may also cause virulent to the host if the bacteria somehow succeed to establish inside the host. If losing the ability to produce toxin is not too costly for the survival in the free-living state, then such an evolutionary step can be made. If providing protection to the host involves only the colonisation of the benign bacteria to prevent the colonisation of other harmful pathogen \parencite{Krediet2013}, and being maladapted to the free-living environment can increase the colonisation and competition with pathogenic strains, then it is possible that the initially potential parasite may evolve toward obligate mutualism. Unfortunately, we have no evidences regarding such benefits from being maladapted to the free-living lifestyle; hence our arguments are purely speculative but it nevertheless shows a possibility of evolutionary trajectory.  
+
+\medskip
+
+There is no direct evidence of transitions from free-living organisms or facultative symbiosis to obligate symbiosis; and evidence for the fitness gains and losses due to adaptation to the symbiotic lifestyle are scarce. However, we will discuss some examples that may be relevant to our model results, in the hope of giving more insights into future researches. 
+
+\medskip
+
+The first challenge to successfully establish inside a host is being able to attach to the host's surface such as skin, mucosa, and so on. Bacteria overcome this barrier by producing adhesins, such as proteins or polysaccharides; however, it is suggested that the production of adherence factors is costly \parencite{Jefferson2004}. Producing adhesins is probably the first adaptation to the symbiotic lifestyle, although this ability is more of a preadaptation because bacteria also produce adhesins to form biofilms to adapt to adverse external environment \parencite{Jefferson2004}. Therefore, the production of adhesins might not be so costly as often thought, and if bacteria can successfully establish in the hosts with this strategy, they may not evolve to lose further their independent reproduction. However, in many cases being just able to attach to the host is not sufficient to poliferate. For instance, \textcite{Kline2009} showed that adhesins is benefit in colonisation but pose a risk of triggering the host immune response; in order to avoid being attacked by the host immune system, the bacteria produce an antiphagocytic surface layer. If such strategy imposes a further cost on the free-living lifestyle, the bacteria may evolve toward further loss of independent reproduction. Even when the parasites manage to establish themselves inside the host, they always have to avoid the host's immune system, and the strategies to escape elimination have been shown to be costly for the free-living individuals \parencite{Sturm2011}. A parasite that completes its lifecycle via a host has to overcome all of the mentioned barriers; and gradual accumulation of small mutations at each step can hardly guarantee its success. Only by having all these mutations at one time may evolutionary transition toward obligate parasites occur.
+
+\medskip
+
+In mutualism,  \textit{Vibrio fisheri}, the symbiont of the bobtail squid, possesses the \textit{lux} genes that are the key element for the luminescence of the bacteria, which is suggested to provide the squid protection against predators \parencite{Miyashiro2012}. These genes also play an important role of the bacterial colonization inside the squid \parencite{Visick2000}. However, the \textit{lux} genes are also important for the bacteria in the free-living environment, since they serve as their quorum sensing system. These \textit{lux} genes are probably the preadaptation to the symbiotic lifestyle, thus the cost that they induce in the free-living lifestyle may be small to lead to further loss of independent reproduction. Interestingly, recent studies have discovered nonluminous free-living strains of \textit{V. fisheri} that possess no \textit{lux} genes \parencite{Wollenberg2012}; and it is suggested that this loss is due to natural selection instead of drift, indicating that the \textit{lux} genes might be more costly for free-living individuals than expected \parencite{Miyashiro2012}. Therefore, if there is room for losing further independent reproduction that confer benefits to the life inside the squid, \textit{V. fisheri} may step by step evolve toward obligate symbiosis.
+
+\printbibliography
+\end{document}
