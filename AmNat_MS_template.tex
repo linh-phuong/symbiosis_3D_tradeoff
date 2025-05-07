@@ -1,4 +1,4 @@
-﻿\documentclass[11pt]{article}
+\documentclass[11pt]{article}
 \usepackage[sc]{mathpazo} %Like Palatino with extensive math support
 \usepackage{fullpage}
 \usepackage[authoryear,sectionbib,sort]{natbib}
@@ -6,6 +6,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lineno}
 \usepackage{titlesec}
+% Added later
+\usepackage{amsmath}  % for equations
+\usepackage{graphicx} % for figures
+
 \titleformat{\section}[block]{\Large\bfseries\filcenter}{\thesection}{1em}{}
 \titleformat{\subsection}[block]{\Large\itshape\filcenter}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}[block]{\large\itshape}{\thesubsubsection}{1em}{}
@@ -92,11 +96,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi
 % section~\ref{section:CountingOwlEggs}), and refer to sections by name
 % (e.g. section ``Counting Owl Eggs'').
 
-The quick red fox jumps over the lazy brown dog. Furthermore, the quick brown fox jumps over the lazy red dog. In addition, the quick R\"{u}ppell's fox (\textit{Vulpes rueppellii}) jumps over the lazy golden retriever.
 
 \section*{Methods}
 
-Lorem ipsum ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula (\citealt{OriginSpec}). 
+\begin{figure}[ht]
+	\includegraphics[width=\linewidth]{model_sketch}
+	\caption{Model sketch}
+	\label{Fig:model_sketch}
+\end{figure}
+
+\begin{align}
+	\frac{dF}{dt}     & = \rho F +\tau A - \alpha F^2 - \mu F - \beta H F \\
+	\frac{dA}{dt}    & = \beta H F +  p r A - \gamma (A + H) A - (\nu + d)  A \\
+	\frac{dH}{dt}    & = r (1 - p) A + r  H -\beta H F   - \gamma (A + H) H - d H 
+\end{align}
 
 \subsection*{Second-order heading}
 
