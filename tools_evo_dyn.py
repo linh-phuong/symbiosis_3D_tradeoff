@@ -71,7 +71,7 @@ def tau_leap_symbiosis_mutation(
         tau(trait_init[0:1], trait_init[1:2], cg),
     )
     for i in range(Tmax):
-        if any(Fs > 0) and any(Hs > 0):
+        if (any(Fs > 0) or any(As > 0)) and (Hs > 0):
             # if any population number is negative, set it to zero
             Fs = np.where(Fs > 0, Fs, 0)
             As = np.where(As > 0, As, 0)
@@ -134,7 +134,7 @@ def tau_leap_symbiosis_mutation(
                 time.append(i)
         else:
             print(
-                f"Simulation stop at time step {i} as Fs = {Fs}, As = {As}, Hs = {Hs}"
+                f"Simulation stop at time step {i} as total Fs = {Fs.sum()}, total As = {As.sum()}, Hs = {Hs.sum()}"
             )
             break
     return dict(

@@ -256,7 +256,7 @@ If[
 
 
 ListStableMarkTwoParameters[jacobmatrix_, parcommon_, bifurParNames_,listbifurParsValues_, 
-							equiList_, markerCode_:{"@", "*", "."}, useColor_:False]:=
+							equiList_, markerCode_:{"\[EmptyDiamond]", "\[EmptyCircle]", "\[FilledCircle]"}, useColor_:False]:=
 Module[{marklist, listval, markers, lenEqList},
 listval = Thread[bifurParNames->#]&/@ listbifurParsValues;
 lenEqList = Length[equiList];
