@@ -96,24 +96,60 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi
 % section~\ref{section:CountingOwlEggs}), and refer to sections by name
 % (e.g. section ``Counting Owl Eggs'').
 
-\begin{itemize}
-	\item What is the main question that we are interested in addressing?
-	\item Any history and previous work on this topic? Citations
-	\item What was not tackled in those previous works, and why is focusing on that important?
-	\item Our contribution.
-	\item Our methodology
-\end{itemize}
+%\begin{itemize}
+%	\item What is the main question that we are interested in addressing?
+%	\item Any history and previous work on this topic? Citations
+%	\item What was not tackled in those previous works, and why is focusing on that important?
+%	\item Our contribution.
+%	\item Our methodology
+%\end{itemize}
 
-Start with major transition in evolution. What to say about this??? fraternal transition and egalitarian transition (estrela 2016)
+A major evolutionary transition, in principal, is the transition from independent replicators to associations, and this process dictates the diverse complex life on Earth.
+Two kinds of major transitions are recognized: "fraternal" transitions and "egalitarian" transitions. 
+"Fraternal" transitions involve related independent entities and are often promoted by collaboration among kins (ref)
+In contrast, the "egalitarian" transitions involves unrelated independent entities, and it remains a challenge to understand  how they come together and form tight associations (ref).
+Intuitively, conflict may prevail such a relationship as these entities can replicate independently.
+Even when some form of denpendence evolve, it may be difficult to maintain if it does not bring sufficient benefit to either party or both of them.
+
+Tight associations of once independent entities such as eukaryotes show a complete renouncement of independent replication and a full cooperation from both parties.
+However, on the evolutionary transition process, it is natural that dependency may not evolve synchronously from both parties, and uncooperative behaviour such as exploitation and harmful effect exerted from one party might be common.
+Studying the major evolutionary transitions thus should involve studying two evolutionary continuum at the same time. 
+The first continumm involves independent reproduction ranging from complete renouncement of independent reproduction (i.e. becoming tight association) to retaining full level of independent reproduction (i.e. full independent entity).
+The second continuum is the well-known mutualism-parasitism continuum.
+a key question arises: does obligate symbiosis evolve easier from free-living organism under mutualistic or parasitic relationships? 
+
+Because of the conventional thinking that the end of the major evolutionary transition is an association between two independent identities with high interdependency and low conflict, a majority of theoretical research focus on the evolution of how cooperation can be maintained in associations (ref).
+These studies ignore how the independent entities lose their ability to reproduce while it is very possible that they cooperate and still maintain their independence. 
+In fact, without considering the evolution of independent reproduction, these studies can be related to several work of mutualism-parasitism continuum (ref).
+In particular, if cooperation cannot be maintain, cheaters who do not contribute to the benefit of the association will prosper.
+These cheaters are parasites if harmness to the partners is considered whereas they are commensalism if no harm is induced or if harmness is not considered in the study.
+
+
+Few studies actually consider the evolution of renouncement of independent reproduction. Nguyen and van Ballen (ref) showed that it is in fact difficult for a symbiont to lose its independent reproduction, suggesting that evolution toward tight associations such as eukaryotes is not as common as traditionally thought.
+This work, however, ignore the effect of symbionts on their hosts and assume that host dynamics is a fixed parameter.
+Athraya et al (ref) study how independent entities lose their reproduction ability, including the dynamics of both host and symbiont, and considering their roles as two equal partners.
+Their work, however, does not consider the nature of the two partners' relationship.
+
+This work aims to study the evolutionary transition of free-living organism to obligate symbiont considering the effect that the symbiont has on its host.
+The effect can be negative, suggesting parasitism, or positive, suggesting mutualism.
+We focus on the evolution of the symbiont, assuming that it evolves faster than the host as symbionts are often organisms of smaller size and shorter lifespan such as microbial organisms.
+We found that ...
+
+
 \section*{Methods}
 
-\subsection*{Basic model}
+\subsection*{Ecological dynamics}
 
-\begin{figure}[ht]
-	\includegraphics[width=\linewidth]{model_sketch}
+The ecological dynamics of our system involve free-living organism ($F$), host ($H$), and association ($A$), which is formed by the meeting between free-living organisms and hosts. Free-living organisms reproduce independent of the host at a rate $\rho$, which we will call independent reproduction. They encounter hosts at a rate $\beta$ and form association. Hosts reproduce independently at a rate $r$. When an association is formed, reproduction of new free-living organisms and hosts decouple. Particularly, at a rate $\tau$, new free-living organisms are born, and we call this rate bound reproduction. With probability $p$, symbionts reproduces together with their host at rate $r$, making $r p$ the vertical transmission rate. Symbionts only have effect on hosts' mortality at a rate $\nu$, where $\nu$ can be positive, suggesting parasitic relationship, or negative, suggesting mutualistic relationship. Hosts have their own dynamics; they reproduce at rate $r$. At rate $(1-p)r$, new hosts are produced from associations. Both hosts and associations have natural mortality rate at $d$, and compete with all hosts and associations at rate $\gamma$. Description of the system dynamics are in Figure \ref{Fig:model_sketch}, and  parameter explaination are in Table \ref{table:parameters}. 
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.7 \linewidth]{model_sketch}
 	\caption{Model sketch}
 	\label{Fig:model_sketch}
 \end{figure}
+
+The dynamics of the system are described by the following differential equations
 
 \begin{align}
 	\frac{dF}{dt}     & = \rho F +\tau A - \alpha F^2 - \mu F - \beta H F \\
@@ -121,25 +157,72 @@ Start with major transition in evolution. What to say about this??? fraternal tr
 	\frac{dH}{dt}    & = r (1 - p) A + r  H -\beta H F   - \gamma (A + H) H - d H 
 \end{align}
 
-%\subsection*{Second-order heading}
-%
-%Lorem ipsum nulla facilisi, pace \citet{LemKapEx07}. Etiam semper, orci sit amet facilisis interdum, tellus nunc consequat erat, quis viverra nisi diam ut metus. Pellentesque cursus, sapien malesuada euismod iaculis, mauris purus interdum diam, vel vestibulum justo enim vitae tellus. Nunc interdum lorem sit amet diam volutpat tristique. Quisque pulvinar ac metus commodo lacinia (\citealt{Ing11,Xiao2015}).  
+\begin{table}[ht!]
+	\centering
+	\begin{tabular}{c| c}
+		Parameter & Description \\
+		\hline
+		$\rho$ & Independent reproduction \\
+		\hline 
+		$\tau$ & Bound reproduction \\
+		\hline
+		$\alpha$ & Competition coefficient of free-living organisms \\
+		\hline
+		$\mu$ & Mortality rate of free-living organisms \\
+		\hline
+		$\beta$  & Transmission rate \\
+		\hline
+		$r$ & Reproduction rate of associations and hosts \\
+		\hline
+		$p$ & Probability of vertical transmission \\
+		\hline
+		$\gamma$ & Competition coefficient of hosts and associations \\
+		\hline
+		$\nu$ & Effect of symbiont on hosts \\
+		\hline
+		$d$ & Natural mortality rate of hosts and associations \\
+		\hline
+	\end{tabular}
+	\caption{Parameter explanation}
+	\label{table:parameters}
+\end{table}
 
-%\subsubsection*{Third-order heading}
-%
-%Usually two or three levels of heading will be all you need. Journal style even permits a fourth level in case you need it.
-%
-%\paragraph*{Fourth-order heading}
-%The quick red fox jumps over the lazy brown dog in this paragraph as well. Donec mauris nibh, volutpat vehicula viverra at, iaculis congue sem. Praesent eget erat rhoncus erat sollicitudin volutpat. 
+\subsection*{Mutant dynamics}
+We consider the evolution of three traits: independent reproduction $\rho$, bound reproduction $\tau$, and effect of the symbiont on the host $\nu$. A rare mutant, with trait values $\rho_m$, $\tau_m$, and $\nu_m$ arises when the resident population reaches its equilibrium, has the following dynamics
+\begin{equation}
+	\begin{pmatrix}
+		\frac{d F_m}{dt} \\
+		\frac{d A_m}{dt}
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		\rho_m - \alpha F^* - \mu - \beta H^* & \tau_m \\
+		\beta H^* & p r - \gamma(A^* + H^*) - (\nu_m + d)
+	\end{pmatrix}
+	  \begin{pmatrix}
+	  	F_m \\ A_m
+	  \end{pmatrix}
+	  \label{eq:mutant_dyn}
+\end{equation}
+where $F^*$, $A^*$, and $H^*$ are the resident population at equilibrium, which depends on the resident trait values $\rho$, $\tau$, and $\nu$. 
+\subsubsection*{Invasion condition}
+A mutant can invade if the determinant of the matrix that governs dynamics (\ref{eq:mutant_dyn}) is negative, which results in the following conditions
 
 \begin{equation}
-{ \frac{1}{N_k-1} \sum \limits_{t=1}^{N_k} (M_{tjk} - \bar{M}_{jk})^2}
+	\tau_m > \frac{(\alpha  F^* + \beta  H^* + \mu  - \rho_m) (\gamma  (A^* + H^*) + d + \nu_m - p r)}{\beta  H^*}
 \end{equation}
 
+We show in the Supplementary Information that this condition is equivalent to having the reproduction ratio $R_{0m}$ of the mutant greater than one.
 
-%\subsection*{Another second-order heading}
-%
-%As \citet{Xiao2015} argued, phasellus porttitor eros et ante condimentum, eget facilisis orci condimentum. Nulla facilisi. Proin placerat elit blandit, euismod dolor nec, dapibus diam. Mauris posuere malesuada lacus, at elementum lacus auctor eu (fig~\ref{Fig:Jumps}A). 
+\subsubsection*{Three way trade-off}
+We consider a three way trade-off between independen reproduction $\rho$, bound reproduction $\tau$ and the effect that symbionts exert on their hosts $\nu$. In particular, each symbiont has a total budget $\theta$ that can be spent on independent reproduction $\rho$ or bound reproduction $\tau$. Additionally, if the symbiont exert harmness on the host, i.e. positive $\nu$, it gain additional energy on the total budget, although this increase is limited to a value of $\nu_{max}$. On the other hand, if the symbiont provides some kind of protection, i.e. negative $\nu$, then it rips off some energy from the total budget. We assume that the protection value is always smaller than the natural death $\nu < d$ because if negative value $\nu > d$ then it becomes additional reproduction to the association. 
+
+\begin{equation}
+	\theta = \tau + v \rho^h -  \eta \frac{\nu (\nu + d)^g}{\nu_{max}}
+\end{equation}
+
+\subsubsection*{Evolutionary Stable Strategy -- ESS}
+
 
 \section*{Results}
 

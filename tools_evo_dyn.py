@@ -95,7 +95,7 @@ def tau_leap_symbiosis_mutation(
             nn = (nus + np.random.normal(0, sigma_nu)) * ismutate
             tt = tau(rh, nn, cg)
             # Only keep the trait values if they are within range
-            nn_cond = (-cg.d <= nn) * (nn <= cg.nu_max)
+            nn_cond = (-cg.d < nn) * (nn <= cg.nu_max)
             tt_cond = tt >= 0
             mut_cond = (
                 nn_cond * tt_cond
