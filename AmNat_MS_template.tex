@@ -15,6 +15,17 @@
 \titleformat{\subsubsection}[block]{\large\itshape}{\thesubsubsection}{1em}{}
 \titleformat{\paragraph}[runin]{\itshape}{\theparagraph}{1em}{}[. ]\renewcommand{\refname}{Literature Cited}
 
+\usepackage{xcolor}
+\usepackage{hyperref}
+\definecolor{darkgreen}{rgb}{0.1,0.6,0.3}
+\definecolor{darkred}{rgb}{0.6,0.3,0.1}
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,          % color of internal links (change box color with linkbordercolor)
+    citecolor=darkgreen,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor= black           % color of external links
+}
 %%%%%%%%%%%%%%%%%%%%%
 % Line numbering
 %%%%%%%%%%%%%%%%%%%%%
@@ -104,35 +115,37 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi
 %	\item Our methodology
 %\end{itemize}
 
-A major evolutionary transition, in principal, is the transition from independent replicators to associations, and this process dictates the diverse complex life on Earth.
-Two kinds of major transitions are recognized: "fraternal" transitions and "egalitarian" transitions. 
-"Fraternal" transitions involve related independent entities and are often promoted by collaboration among kins (ref)
-In contrast, the "egalitarian" transitions involves unrelated independent entities, and it remains a challenge to understand  how they come together and form tight associations (ref).
-Intuitively, conflict may prevail such a relationship as these entities can replicate independently.
-Even when some form of denpendence evolve, it may be difficult to maintain if it does not bring sufficient benefit to either party or both of them.
+A major evolutionary transition, in principle, is the transition from independent replicators to associations, and this process has been foundational to the origin and diversity of complex life on Earth.
+Two kinds of major transitions are recognised: "fraternal" transitions and "egalitarian" transitions \citep{queller:PTRSB:2000} . 
+"Fraternal" transitions involve related independent entities and are often promoted by collaboration among kin \citep{nowak:Nature:2010}.
+In contrast, the "egalitarian" transitions involve unrelated independent entities, and it remains a challenge to understand how they come together and form tight associations \citep{tarnita:JTB:2013}.
+Intuitively, conflict may prevail in such a relationship as these entities can replicate independently.
+Even when some form of dependence evolves, it may be difficult to maintain if it does not bring sufficient benefit to either party or both of them \citep{athreya:AmNat:2025}.
 
-Tight associations of once independent entities such as eukaryotes show a complete renouncement of independent replication and a full cooperation from both parties.
-However, on the evolutionary transition process, it is natural that dependency may not evolve synchronously from both parties, and uncooperative behaviour such as exploitation and harmful effect exerted from one party might be common.
-Studying the major evolutionary transitions thus should involve studying two evolutionary continuum at the same time. 
-The first continumm involves independent reproduction ranging from complete renouncement of independent reproduction (i.e. becoming tight association) to retaining full level of independent reproduction (i.e. full independent entity).
+Tight associations of once independent entities, such as proteobacteria and archaea in forming eukaryotes, show a complete renunciation of independent replication and full cooperation from both parties.
+However, in the evolutionary transition process, it is natural that dependency may not evolve synchronously from both parties, and uncooperative behaviour such as exploitation and harmful effects exerted by one party might be common.
+Studying the major evolutionary transitions thus involves evolution along at least two continuums simultaneously \citep{estrela:COM:2016} . 
+The first continuum involves independent reproduction ranging from complete renouncement of independent reproduction (i.e. becoming a tight association) to retaining a full level of independent reproduction (i.e. full independent entity).
 The second continuum is the well-known mutualism-parasitism continuum.
-a key question arises: does obligate symbiosis evolve easier from free-living organism under mutualistic or parasitic relationships? 
+A key question then becomes - if obligate symbiosis evolves more easily from free-living organisms under mutualistic or parasitic relationships? 
 
-Because of the conventional thinking that the end of the major evolutionary transition is an association between two independent identities with high interdependency and low conflict, a majority of theoretical research focus on the evolution of how cooperation can be maintained in associations (ref).
-These studies ignore how the independent entities lose their ability to reproduce while it is very possible that they cooperate and still maintain their independence. 
-In fact, without considering the evolution of independent reproduction, these studies can be related to several work of mutualism-parasitism continuum (ref).
-In particular, if cooperation cannot be maintain, cheaters who do not contribute to the benefit of the association will prosper.
-These cheaters are parasites if harmness to the partners is considered whereas they are commensalism if no harm is induced or if harmness is not considered in the study.
+Because of the conventional thinking that the end of the major evolutionary transition is an association between two independent identities with high interdependency and low conflict, a majority of theoretical research focuses on the evolution of how cooperation can be maintained in associations (ref).
+These studies ignore how the independent entities lose their ability to reproduce, while it is very possible that they cooperate and still maintain their independence. 
+In fact, without considering the evolution of independent reproduction, these studies can be related to several works of the mutualism-parasitism continuum (ref).
+In particular, if cooperation cannot be maintained, cheaters who do not contribute to the benefit of the association will prosper \citep{szathmary:Nature:1995}.
+These cheaters are parasites if harm to the partners is considered, whereas they are commensal if no harm is induced or if harm is not considered in the study.
 
 
-Few studies actually consider the evolution of renouncement of independent reproduction. Nguyen and van Ballen (ref) showed that it is in fact difficult for a symbiont to lose its independent reproduction, suggesting that evolution toward tight associations such as eukaryotes is not as common as traditionally thought.
-This work, however, ignore the effect of symbionts on their hosts and assume that host dynamics is a fixed parameter.
-Athraya et al (ref) study how independent entities lose their reproduction ability, including the dynamics of both host and symbiont, and considering their roles as two equal partners.
+Few studies actually consider the evolution of renouncement of independent reproduction. 
+\citet{nguyen:PLoSOne:2020} showed that it is, in fact, difficult for a symbiont to lose its independent reproduction, suggesting that evolution toward tight associations, such as eukaryotes, is not as common as traditionally thought.
+This work, however, ignores the effect of symbionts on their hosts and assumes that host dynamics is a fixed parameter.
+\citet{athreya:AmNAt:2025} study how independent entities lose their reproduction ability, including the dynamics of both host and symbiont, and considering their roles as two equal partners.
 Their work, however, does not consider the nature of the two partners' relationship.
 
-This work aims to study the evolutionary transition of free-living organism to obligate symbiont considering the effect that the symbiont has on its host.
-The effect can be negative, suggesting parasitism, or positive, suggesting mutualism.
-We focus on the evolution of the symbiont, assuming that it evolves faster than the host as symbionts are often organisms of smaller size and shorter lifespan such as microbial organisms.
+This work aims to study the evolutionary transition of a free-living organism to an obligate symbiont, considering the effect that the symbiont has on its host.
+Work by \citep{krishnan} assumes a trophic relationship between the host products and the free-living symbionts.
+However, in principle, the effect can be on the continuum from negative, suggesting parasitism, to positive, suggesting mutualism.
+We focus on the evolution of the symbiont, assuming that it evolves faster than the host, as symbionts are often organisms of smaller size and shorter lifespan, such as microbial organisms.
 We found that ...
 
 
@@ -359,50 +372,53 @@ On initial submission, you may use this section to provide a URL for editors and
 % The list below includes sample journal articles, book chapters, and
 % Dryad references.
 
-\begin{thebibliography}{}
+\bibliographystyle{amnatnat}
+\bibliography{library.bib}
 
-\bibitem[{Cook et~al.(2015)Cook, Collaborator, and Expert}]{CookEtAl2015}
-Cook, O.~E., G.~H. Collaborator, and A.~Q. Expert. 2015.
-\newblock Data from: Template and guidelines for using \LaTeX{} in \textit{The American Naturalist}.
-\newblock American Naturalist, Dryad Digital Repository, https://dx.doi.org/10.5061/dryad.XYZAB123.
-
-\bibitem[{Darwin(1859)Darwin}]{OriginSpec}
-Darwin, C. 1859.
-\newblock On the origin of species by means of natural selection, or the preservation of favoured races in the struggle for life.
-\newblock J.~Murray, London.
-
-\bibitem[{Davis et~al.(2011)Davis, Brakora, and Lee}]{DavisEtAl2011}
-Davis, E.~B., K.~A. Brakora, and A.~H. Lee. 2011.
-\newblock Evolution of ruminant headgear: a review.
-\newblock Proceedings of the Royal Society~B 278:2857--2865.
-
-\bibitem[{Inglis et~al.(2011)Inglis, Roberts, Gardner, and Buckling}]{Ing11}
-Inglis, R.~F., P.~G. Roberts, A.~Gardner, and A.~Buckling. 2011.
-\newblock Spite and the scale of competition in \textit{Pseudomonas
-  aeruginosa}.
-\newblock American Naturalist 178:276--285.
-
-\bibitem[{Fastovsky(2009)Fastovsky}]{LemKapEx07}
-Fastovsky, D.~E. 2009.
-\newblock Ideas in dinosaur paleontology: resonating to social and political context.
-\newblock Pages 239--253 \emph{in} D. Sepkoski and M. Ruse, eds. The Paleobiological Revolution. University of Chicago Press, Chicago~IL.
-
-\bibitem[{Xiao et~al.(2015)Xiao, McGlinn, and White}]{Xiao2015}
-Xiao, X., D.~J. McGlinn, and E.~P. White. 2015.
-\newblock A strong test of the maximum entropy theory of ecology.
-\newblock American Naturalist 185:E705--E80.
-
-\section*{References Cited Only in the Online Enhancements}
-
-% This section is for works cited in your supplemental PDF but
-% not in the main text.
-
-\bibitem[{Tytler(1759)Tytler}]{tytler-mqos}
-Tytler, W. 1759.
-\newblock The Inquiry, Historical and Critical, into the Evidence against Mary Queen of Scots, and an Examination of the Histories of Dr. Robertson and David Hume with respect to that Evidence.
-\newblock W.~Creech, Edinburgh.
-
-\end{thebibliography}
+%\begin{thebibliography}{}
+%
+%\bibitem[{Cook et~al.(2015)Cook, Collaborator, and Expert}]{CookEtAl2015}
+%Cook, O.~E., G.~H. Collaborator, and A.~Q. Expert. 2015.
+%\newblock Data from: Template and guidelines for using \LaTeX{} in \textit{The American Naturalist}.
+%\newblock American Naturalist, Dryad Digital Repository, https://dx.doi.org/10.5061/dryad.XYZAB123.
+%
+%\bibitem[{Darwin(1859)Darwin}]{OriginSpec}
+%Darwin, C. 1859.
+%\newblock On the origin of species by means of natural selection, or the preservation of favoured races in the struggle for life.
+%\newblock J.~Murray, London.
+%
+%\bibitem[{Davis et~al.(2011)Davis, Brakora, and Lee}]{DavisEtAl2011}
+%Davis, E.~B., K.~A. Brakora, and A.~H. Lee. 2011.
+%\newblock Evolution of ruminant headgear: a review.
+%\newblock Proceedings of the Royal Society~B 278:2857--2865.
+%
+%\bibitem[{Inglis et~al.(2011)Inglis, Roberts, Gardner, and Buckling}]{Ing11}
+%Inglis, R.~F., P.~G. Roberts, A.~Gardner, and A.~Buckling. 2011.
+%\newblock Spite and the scale of competition in \textit{Pseudomonas
+%  aeruginosa}.
+%\newblock American Naturalist 178:276--285.
+%
+%\bibitem[{Fastovsky(2009)Fastovsky}]{LemKapEx07}
+%Fastovsky, D.~E. 2009.
+%\newblock Ideas in dinosaur paleontology: resonating to social and political context.
+%\newblock Pages 239--253 \emph{in} D. Sepkoski and M. Ruse, eds. The Paleobiological Revolution. University of Chicago Press, Chicago~IL.
+%
+%\bibitem[{Xiao et~al.(2015)Xiao, McGlinn, and White}]{Xiao2015}
+%Xiao, X., D.~J. McGlinn, and E.~P. White. 2015.
+%\newblock A strong test of the maximum entropy theory of ecology.
+%\newblock American Naturalist 185:E705--E80.
+%
+%\section*{References Cited Only in the Online Enhancements}
+%
+%% This section is for works cited in your supplemental PDF but
+%% not in the main text.
+%
+%\bibitem[{Tytler(1759)Tytler}]{tytler-mqos}
+%Tytler, W. 1759.
+%\newblock The Inquiry, Historical and Critical, into the Evidence against Mary Queen of Scots, and an Examination of the Histories of Dr. Robertson and David Hume with respect to that Evidence.
+%\newblock W.~Creech, Edinburgh.
+%
+%\end{thebibliography}
 
 \newpage{}
 
