@@ -1,5 +1,6 @@
 import numpy as np
 from numpy.random import poisson
+from tqdm import tqdm
 
 
 def tau(rho, nu, cg):
@@ -70,7 +71,7 @@ def tau_leap_symbiosis_mutation(
         trait_init[1:2],
         tau(trait_init[0:1], trait_init[1:2], cg),
     )
-    for i in range(Tmax):
+    for i in tqdm(range(Tmax)):
         if (any(Fs > 0) or any(As > 0)) and (Hs > 0):
             # if any population number is negative, set it to zero
             Fs = np.where(Fs > 0, Fs, 0)
