@@ -4,4 +4,3 @@
 *.gz
 __pycache__/
 *.pdf
-*.pkl
